@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/posts', [App\Http\Controllers\Posts\PostsController::class, 'index']);
+Route::get('/posts/{id}', [App\Http\Controllers\Posts\PostsController::class, 'show']);
+Route::get('/posts2/{id}', [App\Http\Controllers\Posts\PostsController::class, 'show2']);
