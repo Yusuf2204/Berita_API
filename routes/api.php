@@ -22,10 +22,13 @@ Route::post('/login', [App\Http\Controllers\Auth\AuthController::class, 'index']
 
 // protected api route
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/posts', [App\Http\Controllers\Posts\PostsController::class, 'index']);
-    Route::get('/posts/{id}', [App\Http\Controllers\Posts\PostsController::class, 'show']);
-
     Route::get('/profile', [App\Http\Controllers\Auth\AuthController::class, 'profile']);
     Route::get('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout']);
+
+    Route::post('/posts', [App\Http\Controllers\Posts\PostsController::class, 'store']);
 });
+
+Route::get('/posts', [App\Http\Controllers\Posts\PostsController::class, 'index']);
+Route::get('/posts/{id}', [App\Http\Controllers\Posts\PostsController::class, 'show']);
+
 
