@@ -23,6 +23,8 @@ class UsersSeeder extends Seeder
             'userPassword' => Hash::make('1234'),
             'firstname' => 'admin',
             'lastname' => 'admin',
+            'remember_token' => '',
+            'email_verified_at' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

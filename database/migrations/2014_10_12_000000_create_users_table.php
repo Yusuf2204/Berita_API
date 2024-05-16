@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('userPassword');
             $table->string('firstname', 255);
             $table->string('lastname', 255)->nullable();
+            $table->string('remember_token', 100)->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

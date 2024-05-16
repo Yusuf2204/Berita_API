@@ -11,7 +11,7 @@ use App\Models\Posts\Posts;
 class PostsController extends Controller
 {
     public function __construct() {
-        $this->model = new Posts;
+        $this->model = new Posts();
     }
 
     public function index()
@@ -28,14 +28,6 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = $this->model->with('writer:userId,userName')->findOrFail($id);
-
-        $data_id = new PostsDetailResource($post);
-        return $data_id;
-    }
-
-    public function show2($id)
-    {
-        $post = $this->model->findOrFail($id);
 
         $data_id = new PostsDetailResource($post);
         return $data_id;
