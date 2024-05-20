@@ -61,4 +61,13 @@ class PostsController extends Controller
         $data_post = new PostsDetailResource($post->loadMissing('writer:userId,userName'));
         return $data_post;
     }
+
+    public function destroy($id)
+    {
+        $post = $this->model::findOrFail($id);
+        $post->delete($id);
+
+        $data_post = new PostsDetailResource($post->loadMissing('writer:userId,userName'));
+        return $data_post;
+    }
 }
