@@ -47,4 +47,18 @@ class PostsController extends Controller
         $data_post = new PostsDetailResource($post->loadMissing('writer:userId,userName'));
         return $data_post;
     }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'postTitle' => 'required|max:255',
+            'postNews' => 'required',
+        ]);
+
+        $post = $this->model::findOrFail($id);
+        $post->update($request->all());
+
+        $data_post = new PostsDetailResource($post->loadMissing('writer:userId,userName'));
+        return $data_post;
+    }
 }

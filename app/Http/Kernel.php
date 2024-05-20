@@ -54,14 +54,15 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'auth'              => \App\Http\Middleware\Authenticate::class,
+        'guest'             => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'user-post'         => \App\Http\Middleware\Post\UserPost::class,
+        'auth.basic'        => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'can'               => \Illuminate\Auth\Middleware\Authorize::class,
+        'password.confirm'  => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'verified'          => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'cache.headers'     => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'signed'            => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle'          => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }
