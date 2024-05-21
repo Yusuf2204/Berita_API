@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/posts', [App\Http\Controllers\Posts\PostsController::class, 'store']);
     Route::patch('/posts/{id}', [App\Http\Controllers\Posts\PostsController::class, 'update'])->middleware('user-post');
     Route::delete('/posts/{id}', [App\Http\Controllers\Posts\PostsController::class, 'destroy'])->middleware('user-post');
+
+    Route::post('/comment', [App\Http\Controllers\Comment\CommentController::class, 'store']);
+    Route::patch('/comment/{id}', [App\Http\Controllers\Comment\CommentController::class, 'update'])->middleware('user-comment');
+    Route::delete('/comment/{id}', [App\Http\Controllers\Comment\CommentController::class, 'destroy'])->middleware('user-comment');
 });
 
 Route::get('/posts', [App\Http\Controllers\Posts\PostsController::class, 'index']);
