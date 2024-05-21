@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'auth'              => \App\Http\Middleware\Authenticate::class,
         'guest'             => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'user-post'         => \App\Http\Middleware\Post\UserPost::class,
+        'user-comment'      => \App\Http\Middleware\Comment\UserComment::class,
         'auth.basic'        => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can'               => \Illuminate\Auth\Middleware\Authorize::class,
         'password.confirm'  => \Illuminate\Auth\Middleware\RequirePassword::class,

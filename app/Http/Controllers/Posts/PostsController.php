@@ -17,7 +17,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = $this->model::with('writer:userId,userName')->get();
+        $posts = $this->model::with(['writer:userId,userName', 'comments:commentId,commentPostId,commentUserId,commentContent'])->get();
 
         $data = array(
             'data' => $posts
@@ -28,7 +28,7 @@ class PostsController extends Controller
 
     public function show($id)
     {
-        $post = $this->model->with('writer:userId,userName')->findOrFail($id);
+        $post = $this->model->with(['writer:userId,userName', 'comments:commentId,commentPostId,commentUserId,commentContent'])->findOrFail($id);
 
         $data_id = new PostsDetailResource($post);
         return $data_id;
